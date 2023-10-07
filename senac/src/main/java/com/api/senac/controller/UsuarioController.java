@@ -29,12 +29,36 @@ public class UsuarioController {
     @PostMapping("/autenticar")
     public String autenticarUsuario(String usuario, String senha, Model model) {
         UsuarioEntity usuarioEntity = usuarioService.buscarUsuarioPorUsuario(usuario);
-        
+
         if (usuarioEntity != null && usuarioService.validarUsuario(usuario, senha)) {
-            return "redirect:/filmes"; 
+            return "redirect:/filmes";
         } else {
-            return "redirect:/login?error=true"; 
+            return "redirect:/login?error=true";
         }
     }
-}
 
+    @GetMapping("/cadastra-usuario")
+    public String mostrarFormularioCadastro(Model model) {
+        return "cadastra-usuario";
+    }
+
+    @PostMapping("/cadastrar")
+    public String cadastrarUsuario(String usuario, String senha, Model model) {
+        // Verifique se o usuário já existe no banco de dados (você pode adicionar essa
+        // lógica aqui)
+        if (usuarioService.buscarUsuarioPorUsuario(usuario) != null) {
+            model.addAttribute("mensagemErro", "Usuário já existe.");
+            return "cadastra-usuario.html"; // Redirecione de volta para a página de cadastro com uma mensagem de erro
+        }
+
+        // Crie uma instância de UsuarioEntity com os dados do formulário
+        UsuarioEntity novoUsuario = new UsuarioEntity(usuario, senha);
+
+        // Salve o novo usuário no banco de dados
+        usuarioService.salvarUsuario(novoUsuario);
+
+        // Redirecione para a página de login
+        return "redirect:/login";
+    }
+
+}

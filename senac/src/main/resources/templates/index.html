@@ -41,7 +41,14 @@
                                         required
                                     >
                                 </div>
-                                <button type="submit" class="btn btn-primary" style="background-color: #000000; color: white; text-decoration: none; border: none; border-radius: 5px; padding: 5px 10px;">Entrar</button>
+                                <div class="form-group d-flex justify-content-between">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #000000; color: white; text-decoration: none; border: none; border-radius: 5px; padding: 5px 10px;">
+                                        Entrar
+                                    </button>
+                                    <a th:href="@{/cadastra-usuario}" class="btn btn-secondary" style="background-color: #000000; color: white; text-decoration: none; border: none; border-radius: 5px; padding: 5px 10px;">
+                                        Novo Usuário
+                                    </a>
+                                </div>
                             </form>
                         </div>
                     </div>

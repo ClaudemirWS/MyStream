@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body style="background-color: #333; color: white;">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header" style="background-color: #000000; color: white;">Cadastro de Usuário</div>
+                <div class="card-body" style="background-color: #333;">
+                    <form th:action="@{/cadastrar}" method="POST">
+                        <div class="form-group">
+                            <label for="usuario">Usuário:</label>
+                            <input type="text" class="form-control" id="usuario" name="usuario" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha:</label>
+                            <input type="password" class="form-control" id="senha" name="senha" required>
+                        </div>
+                        <div class="form-group d-flex justify-content-between">
+                            <a th:href="@{/}" class="btn btn-secondary" style="background-color: #000000; color: white; text-decoration: none; border: none; border-radius: 5px; padding: 5px 10px;">
+                                Voltar
+                            </a>
+                            <button type="submit" class="btn btn-primary" style="background-color: #000000; color: white; text-decoration: none; border: none; border-radius: 5px; padding: 5px 10px;">
+                                Cadastrar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

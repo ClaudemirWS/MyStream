@@ -16,6 +16,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 CREATE DATABASE mystream_web;
+
 USE mystream_web;
 
 --
@@ -62,7 +63,7 @@ CREATE TABLE `filme_seq` (
 
 LOCK TABLES `filme_seq` WRITE;
 /*!40000 ALTER TABLE `filme_seq` DISABLE KEYS */;
-INSERT INTO `filme_seq` VALUES (251);
+INSERT INTO `filme_seq` VALUES (301);
 /*!40000 ALTER TABLE `filme_seq` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,6 +206,30 @@ LOCK TABLES `streaming_seq` WRITE;
 INSERT INTO `streaming_seq` VALUES (1);
 /*!40000 ALTER TABLE `streaming_seq` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuario` (
+  `usuario` varchar(255) NOT NULL,
+  `senha` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario`
+--
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES ('Claudemir','123');
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -215,4 +240,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-07 10:20:16
+-- Dump completed on 2023-10-07 17:15:12

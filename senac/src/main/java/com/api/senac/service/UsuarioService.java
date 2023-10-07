@@ -30,4 +30,8 @@ public class UsuarioService {
         UsuarioEntity usuarioEntity = buscarUsuarioPorUsuario(usuario);
         return usuarioEntity.getSenha().equals(senha);
     }
+
+    public void salvarUsuario(UsuarioEntity usuario) {
+        usuarioRepository.save(usuario);
+    }
 }
