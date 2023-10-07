@@ -2,7 +2,7 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
-        <title>Filmes</title>
+        <title>Login</title>
         <link
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -11,31 +11,42 @@
         >
     </head>
     <body style="background-color: #333; color: white;">
-        <header th:insert="navbar.html"></header>
-        <div class="container my-2">
-            <h2 style="color: #ffffff;">Lista de Filmes</h2>
-            <a th:href="@{/criarFilmeForm}" class="btn btn-primary btn-sm mb-3" style="background-color: #000000; color: white; text-decoration: none; border: none; border-radius: 5px; padding: 5px 10px;">Adicionar</a>
-            <table border="1" class="table table-striped table-responsive-md" style="background-color: #1a1a1a; color: white;">
-                <thead style="background-color: #000000; color: white;">
-                    <tr>
-                        <th>Titulo</th>
-                        <th>Gênero</th>
-                        <th>Streaming</th>
-                        <th>Opções</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="filme : ${listarFilmes}" style="background-color: #333; color: #ffffff;">
-                        <td th:text="${filme.titulo}"></td>
-                        <td th:text="${filme.genero}"></td>
-                        <td th:text="${filme.streaming}"></td>
-                        <td>
-                            <a th:href="@{/atualizarFilmeForm/{id}(id=${filme.id})}" class="btn btn-primary btn-sm" style="background-color: #000000; text-decoration: none; border: none; border-radius: 5px; padding: 5px 10px;">Atualizar</a>
-                            <a th:href="@{/deletarFilme/{id}(id=${filme.id})}" class="btn btn-danger btn-sm" style="background-color: #8b0000; text-decoration: none; border: none; border-radius: 5px; padding: 5px 10px;">Excluir</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header" style="background-color: #000000; color: white;">Login</div>
+                        <div class="card-body" style="background-color: #333;">
+                            <div th:if="${mensagemErro}" class="alert alert-danger">
+                                <p th:text="${mensagemErro}"></p>
+                            </div>
+                            <form th:action="@{/autenticar}" method="POST">
+                                <div class="form-group">
+                                    <label for="usuario">Usuário:</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="usuario"
+                                        name="usuario"
+                                        required
+                                    >
+                                </div>
+                                <div class="form-group">
+                                    <label for="senha">Senha:</label>
+                                    <input
+                                        type="password"
+                                        class="form-control"
+                                        id="senha"
+                                        name="senha"
+                                        required
+                                    >
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="background-color: #000000; color: white; text-decoration: none; border: none; border-radius: 5px; padding: 5px 10px;">Entrar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

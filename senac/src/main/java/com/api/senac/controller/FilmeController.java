@@ -32,16 +32,16 @@ public class FilmeController {
         this.generoService = generoService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/filmes")
     public String viewHomePage(Model model) {
         model.addAttribute("listarFilmes", filmeService.listarTodosFilmes());
-        return "index";
+        return "listar-filmes";
     }
 
     @GetMapping("/deletarFilme/{id}")
     public String deletarFilme(@PathVariable(value = "id") Integer id) {
         filmeService.deletarFilme(id);
-        return "redirect:/";
+        return "redirect:/filmes";
     }
 
     @GetMapping("/criarFilmeForm")
@@ -70,7 +70,7 @@ public class FilmeController {
             filmeService.atualizarFilme(filme.getId(), filme);
         }
 
-        return "redirect:/";
+        return "redirect:/filmes";
     }
 
     @GetMapping("/atualizarFilmeForm/{id}")
