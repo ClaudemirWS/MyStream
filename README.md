@@ -15,12 +15,11 @@ O projeto mystream está sendo desenvolvido para web com base em sua versão des
   
 #### Fases em desenvolvimento 🎯
 
-- Versão Web do projeto sem conexão com banco de dados.
+- Versão Web do projeto com conexão com banco de dados.
   
 #### Próximas fazes para desenvolver 📆
 
 - Plano de testes.
-- Conexão com banco de dados.
 - Realização de testes e conclusão do projeto.
 
 #### Funcionalidades previstas de acordo com a versão desktop 🧭
